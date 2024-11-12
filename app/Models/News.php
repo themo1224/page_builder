@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ad extends Model
+class News extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,5 @@ class Ad extends Model
         'title',
         'description',
         'image',
-        'start_date',
-        'end_date'
     ];
 }
