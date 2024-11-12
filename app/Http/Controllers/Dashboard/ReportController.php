@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-
     public function viewReport()
     {
-        // Today's views
+            // Today's views
         $todayViews = View::whereDate('created_at', Carbon::today())->count();
 
         // This month's views
@@ -29,4 +28,5 @@ class ReportController extends Controller
             'all_time' => $allTimeViews,
         ]);
     }
+
 }

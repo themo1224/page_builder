@@ -37,8 +37,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
                 Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/auth.php')); // Register the new auth route file
+                ->prefix('api/auth') // Include the prefix used in auth.php
+                ->group(base_path('routes/auth.php'));
         });
     }
 }
