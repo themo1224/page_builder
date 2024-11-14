@@ -1,0 +1,919 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: oxzboeqymkoorexpksp
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: erna.kreiger@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'dZ#DssD]Ay'
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hconn@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: 'OHm(RadW0\&MH'
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/admin/ads:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ascm
+                  nullable: false
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - title
+      security: []
+  '/api/admin/ads/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ad.'
+        example: dolorem
+        required: true
+        schema:
+          type: string
+  /api/admin/news:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminNews
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ojrdvkwzevxwueu
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Voluptatem cum molestiae ut est quia architecto.'
+                  nullable: true
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - title
+      security: []
+  '/api/admin/news/{id}':
+    get:
+      summary: ''
+      operationId: getApiAdminNewsId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiAdminNewsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiAdminNewsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminNewsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the news.'
+        example: dolorem
+        required: true
+        schema:
+          type: string
+  /api/admin/policy:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminPolicy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: dlgwnbqyscgcrlouldcoqfsug
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Quia quae ad sit quia qui corrupti optio.'
+                  nullable: true
+                image:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - title
+      security: []
+  '/api/admin/policy/{id}':
+    get:
+      summary: ''
+      operationId: getApiAdminPolicyId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiAdminPolicyId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiAdminPolicyId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminPolicyId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the policy.'
+        example: aliquam
+        required: true
+        schema:
+          type: string
+  /api/admin/people:
+    get:
+      summary: ''
+      operationId: getApiAdminPeople
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminPeople
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/admin/people/{id}':
+    get:
+      summary: ''
+      operationId: getApiAdminPeopleId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: ''
+      operationId: putApiAdminPeopleId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: rt
+                  nullable: false
+                role_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xdu
+                  nullable: false
+                photo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+                - role_name
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiAdminPeopleId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminPeopleId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: djjjsjzai
+                  nullable: false
+                role_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: hijjlshne
+                  nullable: false
+                photo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+              required:
+                - name
+                - role_name
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the person.'
+        example: alias
+        required: true
+        schema:
+          type: string
+  /api/admin/settings:
+    get:
+      summary: ''
+      operationId: getApiAdminSettings
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiAdminSettings
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                about_us_text:
+                  type: string
+                  description: ''
+                  example: placeat
+                  nullable: true
+                phone_number:
+                  type: string
+                  description: ''
+                  example: earum
+                  nullable: true
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: uriel.kunze@example.net
+                  nullable: true
+                address:
+                  type: string
+                  description: ''
+                  example: voluptatem
+                  nullable: true
+                logo:
+                  type: string
+                  format: binary
+                  description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+                  nullable: true
+      security: []
+  /api/front/news:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 1
+                  data: []
+                  first_page_url: 'http://localhost/api/front/news?page=1'
+                  from: null
+                  last_page: 1
+                  last_page_url: 'http://localhost/api/front/news?page=1'
+                  links:
+                    -
+                      url: null
+                      label: '&laquo; Previous'
+                      active: false
+                    -
+                      url: 'http://localhost/api/front/news?page=1'
+                      label: '1'
+                      active: true
+                    -
+                      url: null
+                      label: 'Next &raquo;'
+                      active: false
+                  next_page_url: null
+                  path: 'http://localhost/api/front/news'
+                  per_page: 8
+                  prev_page_url: null
+                  to: null
+                  total: 0
+                properties:
+                  current_page:
+                    type: integer
+                    example: 1
+                  data:
+                    type: array
+                    example: []
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost/api/front/news?page=1'
+                  from:
+                    type: string
+                    example: null
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost/api/front/news?page=1'
+                  links:
+                    type: array
+                    example:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/front/news?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: null
+                        label:
+                          type: string
+                          example: '&laquo; Previous'
+                        active:
+                          type: boolean
+                          example: false
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost/api/front/news'
+                  per_page:
+                    type: integer
+                    example: 8
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: string
+                    example: null
+                  total:
+                    type: integer
+                    example: 0
+      tags:
+        - Endpoints
+      security: []
+  '/api/front/news/{id}':
+    get:
+      summary: ''
+      operationId: getApiFrontNewsId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\News] 5'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\News] 5'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the news.'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  /api/front/ads:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/front/ads/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Ad] 20'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Ad] 20'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ad.'
+        example: 20
+        required: true
+        schema:
+          type: integer
+  /api/front/videos:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/front/videos/{id}':
+    get:
+      summary: ''
+      operationId: getApiFrontVideosId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Video] 20'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Video] 20'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the video.'
+        example: 20
+        required: true
+        schema:
+          type: integer
+  /api/front/people:
+    get:
+      summary: ''
+      operationId: getApiFrontPeople
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'themo new'
+                    role_name: 'رئیس new'
+                    photo: people_photos/gzVh74gzwIeVzaHxOaVKUfj5ckXoF4en8a4NqSQB.png
+                    created_at: '2024-11-14T09:09:37.000000Z'
+                    updated_at: '2024-11-14T09:11:13.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  '/api/front/people/{id}':
+    get:
+      summary: ''
+      operationId: getApiFrontPeopleId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\People] tenetur'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\People] tenetur'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the person.'
+        example: tenetur
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
